@@ -1,7 +1,36 @@
-[![Python application test with Github Actions](https://github.com/liamletran/compile-python/actions/workflows/main.yml/badge.svg)](https://github.com/liamletran/compile-python/actions/workflows/main.yml)
+# DW Migration Pipeline
 
-# compile-python
-This is a repo for compling and installing Python from scratch.
-# Complie Python and Create VirtualEnv with It
-'sudo apt-get install build-essential gdb lcov libbz2-dev libffi-dev libgdbm-dev liblzma-dev libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev lzma-dev tk-dev uuid-dev zlib1g-dev'
+ETL pipeline migrating a star schema database from SQL Server to PostgresSQL - with pre/post validation and migration reporting. 
 
+
+## Business Context
+Data warehouse migrations are a common real-world challenge for many organizations. Organizations move from legacy SQL Server environment to PostgresSQL for various reasons, including reducing licensing costs and improve flexibility. This project migrates AdventureWorksDW2025 - Microsoft's data warehouse sample database with fact and dimension tables modelling a manufacturing and sales business - from SQL Server to PostgresSQL using a production-style ETL pipeline.  
+
+
+## Design Decisions
+
+| Design                                                             | Rationale                                                                           |
+|--------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| Pre-migration checks catch data issues before any data migrations  | Catching defects at source is more cost effective than fixing corrupted target data |
+| Post-migration row counts and referential integrity validation     | Verifies zero data loss before pipeline is considered complete (quality control)    |
+| Bulk insert (100x faster) eliminates row-by-row waste              | Performance improvement - eliminate unnecessary processing overhead                 |
+
+
+## Architecture
+
+## Tech Stack
+
+|Tool          | Purpose                  |
+|--------------|--------------------------|
+| Docker       | Run SQL Server on macOS  |
+| Python       | Pipeline orchestration   |
+| SQL Server   | Source database          |
+| PostgreSQL   | Target database          |
+
+## How to Run
+
+## Source Database: AdventureWorksDW2025
+
+AdventureWorksDW2025 is Microsoft's official data warehouse sample database, modelling a fictional manufacturing and sales company (AdventureWorks Cycles). It follows a classic star schema pattern used in real enterprise data warehouses. 
+
+Database can be downloaded [here](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver17&tabs=ssms).
