@@ -1,10 +1,13 @@
-# DW Migration Pipeline
+# Data Warehouse Migration Pipeline
 
-ETL pipeline migrating a star schema database from SQL Server to PostgresSQL - with pre/post validation and migration reporting. 
+ETL pipeline migrating a star schema, enterprise database from SQL Server to PostgresSQL - with pre/post validation and migration reporting. 
 
 
 ## Business Context
-Data warehouse migrations are a common real-world challenge for many organizations. Organizations move from legacy SQL Server environment to PostgresSQL for various reasons, including reducing licensing costs and improve flexibility. This project migrates AdventureWorksDW2025 - Microsoft's data warehouse sample database with fact and dimension tables modelling a manufacturing and sales business - from SQL Server to PostgresSQL using a production-style ETL pipeline.  
+
+Data warehouse migrations are critical strategic initiatives aimed at optimizing operational costs and system performance. Facing the rising pressure of SQL Server licensing fees and the need for seamless integration into cloud ecosystems like AWS, organizations are increasingly adopting PostgreSQL as a high-performance, open-source alternative for reporting workloads.
+
+This project demonstrates a comprehensive migration of the AdventureWorksDW2025 database from SQL Server to PostgreSQL using a production-grade ETL pipeline. The process ensures zero data loss and absolute data integrity through rigorous pre- and post-migration validation checks, including row-count matching and referential integrity audits.
 
 
 ## Design Decisions
